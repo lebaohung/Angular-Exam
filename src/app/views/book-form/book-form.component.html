@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="alert alert-success " role="alert" *ngIf="isReceivedMessage">
+    {{ message }}
+  </div>
+
+  <form class="col-6 pt-5" [formGroup]="bookForm" (ngSubmit)="editBook()">
+    <button type="button" class="btn btn-info m-3" routerLink="/book-list">Back / Book List</button>
+
+    <input type="hidden" formControlName="id">
+
+    <div class="form-group">
+      <label for="title">Title: </label>
+      <input type="text" class="form-control" formControlName="title" id="title" aria-describedby="emailHelp" placeholder="Enter Book Title">
+    </div>
+
+    <div class="form-group">
+      <label for="author">Author: </label>
+      <input type="text" class="form-control" formControlName="author" id="author" placeholder="Author">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description: </label>
+      <textarea class="form-control" id="description" formControlName="description" placeholder="Description" rows="5"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary mb-4">{{ buttonMessage }}</button>
+  </form>
+  <button *ngIf="!isAddingBook" type="button" (click)="deleteBook()" class="btn btn-primary ml-3 mb-5">Delete</button>
+</div>

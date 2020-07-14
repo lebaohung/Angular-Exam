@@ -1,0 +1,15 @@
+<h4 style="padding-left: 40%">Book List</h4>
+<div class="container">
+  <button type="button" class="btn btn-info m-3" routerLink="/book-add">Add Book</button>
+  <p>This List has {{bookList.length}} books.</p>
+  <div class="list-group pb-1" *ngFor="let book of bookList">
+    <a routerLink="/book-edit/{{ book.id }}" class="list-group-item list-group-item-action flex-column align-items-start active">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"> {{ book.title }}</h5>
+        <small>ID: {{ book.id }}</small>
+      </div>
+      <small> {{ book.author }}</small>
+    </a>
+  </div>
+
+</div>
